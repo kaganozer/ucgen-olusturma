@@ -1,38 +1,100 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,regular,500,600,700,800,900,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic");
+*, *::before, *::after {transition: 0.2s all ease-in-out;}
+body {
+  display: grid; place-items: center;
+  color: #050726;
+}
+
+#root {
+  width: 100%; display: grid;
+  place-items: center;
+}
+
 .App {
-  text-align: center;
+  display: flex; flex-direction: column;
+  font-family: "Source Code Pro", monospace;
+  margin: 25px 0; gap: 10px;
+  border-radius: 50px;
+  background-color: #f1f1f1;
+  box-shadow:
+    50px 50px 100px #bebebe,
+    -50px -50px 100px #ffffff;
+  width: min(80%, 650px);
+  box-sizing: border-box; padding: 50px;
+}
+.App > div {
+  display: flex; flex-direction: column;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App form {
+  display: flex; flex-direction: column;
+  gap: 5px; width: 100%;
+  margin-bottom: 25px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.App form input {
+  padding: 5px; border: none;
+  border-bottom: 2px solid #050726;
+  font-family: "Source Code Pro", monospace;
+  font-size: 1rem; color: #050726;
+  margin-bottom: 10px;
+  background-color: inherit;
+}
+.App form .cosine input {width: 50px;}
+
+.App form button {
+  padding: 10px;
+  border: 2px solid #050726;
+  background-color: transparent;
+  font-family: "Source Code Pro", monospace;
+  font-size: 1rem; color: #050726;
+  cursor: pointer; border-radius: 5px;
+  position: relative; overflow: hidden;
+  z-index: 1;
+}
+.App form button:hover {color: white;}
+.App form button::before {
+  content: ""; position: absolute;
+  top: 0; left: 0;
+  background-color: #050726;
+  width: 100%; height: 100%;
+  border-radius: 0 5% 5% 0 / 0 50% 50% 0;
+  transform: translateX(-95%);
+  z-index: -1;
+}
+.App form button:hover::before {transform: translateX(0); border-radius: 0;}
+
+.App details summary {font-weight: 600;}
+.App details > div {
+  box-sizing: border-box;
+  padding: 20px; position: relative;
+}
+.App details > div::before {
+  content: ""; position: absolute;
+  top: 20px; left: 0;
+  width: 2px; height: calc(100% - 40px);
+  background-color: #050726;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.App .matrices {display: flex; align-items: center; gap: 10px;}
+.App .matrix {position: relative; padding: 5px; margin: 10px 0;}
+.App .matrix-row{
+  display: grid;
+  gap: 5px 10px; width: 100%;
+  grid-template-areas: ". .";
 }
-
-.App-link {
-  color: #61dafb;
+.App .matrix-row span:last-child {justify-self: end;}
+.matrix::before, .matrix::after {
+  content: "";
+  position: absolute; top: 0;
+  border: 1px solid #000;
+  width: 6px; height: 100%;
 }
+.matrix::before {left: -6px; border-right: 0;}
+.matrix::after {right: -6px; border-left: 0;}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App canvas {justify-self: center;}
+
+@media screen and (max-width: 400px) {
+  :root {font-size: 1.25rem;}
 }
