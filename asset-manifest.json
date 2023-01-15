@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/ucgen-olusturma/static/css/main.ab350904.css",
+    "main.js": "/ucgen-olusturma/static/js/main.5d217dab.js",
+    "static/js/787.ab50a2f5.chunk.js": "/ucgen-olusturma/static/js/787.ab50a2f5.chunk.js",
+    "index.html": "/ucgen-olusturma/index.html",
+    "main.ab350904.css.map": "/ucgen-olusturma/static/css/main.ab350904.css.map",
+    "main.5d217dab.js.map": "/ucgen-olusturma/static/js/main.5d217dab.js.map",
+    "787.ab50a2f5.chunk.js.map": "/ucgen-olusturma/static/js/787.ab50a2f5.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ab350904.css",
+    "static/js/main.5d217dab.js"
+  ]
+}
