@@ -2,11 +2,12 @@
 
 import { useState } from 'react';
 import Canvas from '@/components/Canvas';
-import Head from 'next/head';
+import { IoHelpCircleOutline } from 'react-icons/io5';
 
 export default function Home() {
   const [triangle, setTriangle] = useState({ A: 3, B: 4, C: 5, cos: 0 });
   const [variables, setVariables] = useState({ m: 2, n: 1, cosine: [0, 1] });
+  const [infoActive, setInfoActive] = useState(false);
 
   const gcd = (a, b) => b ? gcd(b, a % b) : a;
 
@@ -31,7 +32,32 @@ export default function Home() {
 
   return (
     <main>
-      <h1>Üçgen Oluşturma</h1>
+      <h1>
+        <span>Üçgen Oluşturma</span>
+        <IoHelpCircleOutline
+          className='help'
+          title="Bilgilendirme"
+          onClick={() => { setInfoActive(active => !active) }}
+        />
+      </h1>
+      <div
+        style={{
+          maxHeight: infoActive ? 0 : '20rem',
+          overflow: 'hidden',
+          pointerEvents: 'none'
+        }}
+        className='infoText'
+      >
+          İstenilen kosinüs değerine sahip açıyı içeren üçgenlerin, girilen m ve n değerlerine bağlı olarak nasıl değiştiğini gözlemlemek adına kurulmuş bir web sitesidir.
+          <br /><br />
+          <b>Değişkenler nasıl girilmeli?</b>
+          <br />
+          Üçgen eşitsizlikleri ve tanımlarına uymak için m, n ve kosinüs değerlerinin verilen tanıma uygun olarak girilmesi gerekmektedir:
+          <br />
+          1 {"\u003e"} n/m {"\u003e"} -cos{"\u03b8"} {"\u003e"} -1
+          <br /><br />
+          <b>Uyarı:</b> Kullanılan kodlama dilinin doğası gereği bazı durumlarda hesaplamalar doğru sonuçlar vermeyebilir. Ondalık sayı yerine tam sayı girilmesi daha doğru sonuçlar verecektir.
+      </div>
       <form onSubmit={handleSubmit}>
         <label htmlFor='m'>m: </label>
         <input
