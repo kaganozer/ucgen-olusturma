@@ -96,10 +96,10 @@ export default function Home() {
             [triangle.A, triangle.B, triangle.C].every(Number.isInteger)
               ? <li>Kenarlar tam sayı olduğundan bu adımda çarpma işlemine gerek yoktur.</li>
               : <>
-                <li>cosθ = {cosine[0]}/{cosine[1]}, b = {cosine[1]}</li>
-                <li>{triangle.A} * {cosine[1]} = {triangle.A * cosine[1]}</li>
-                <li>{triangle.B} * {cosine[1]} = {triangle.B * cosine[1]}</li>
-                <li>{triangle.C} * {cosine[1]} = {triangle.C * cosine[1]}</li>
+                <li>cosθ = {variables.cosine[0]}/{variables.cosine[1]}, b = {variables.cosine[1]}</li>
+                <li>{triangle.A} * {variables.cosine[1]} = {triangle.A * variables.cosine[1]}</li>
+                <li>{triangle.B} * {variables.cosine[1]} = {triangle.B * variables.cosine[1]}</li>
+                <li>{triangle.C} * {variables.cosine[1]} = {triangle.C * variables.cosine[1]}</li>
               </>
           }
           <div>Daha sonra elde edilen sayılar en büyük ortak bölenleri ile sadeleştirilerek primitif üçgen elde edilir.</div>
